@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;
-            $mail->Username = 'secfile101@gmail.com'; // SMTP username
-            $mail->Password = 'ibkh bvir dbdl uigy'; // SMTP password (use an app password if 2-step verification is enabled)
+            $mail->Username = 'smtp mail here'; // SMTP username
+            $mail->Password = 'smtp password here '; // SMTP password (use an app password if 2-step verification is enabled)
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             //Recipients
-            $mail->setFrom('secfile101@gmail.com', 'SecFile OTP Verification');
+            $mail->setFrom('mail address here', 'SecFile OTP Verification');
             $mail->addAddress($email);     // Add a recipient
 
             // Content
