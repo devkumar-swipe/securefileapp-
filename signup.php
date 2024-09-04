@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             //Server settings
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->Host = 'mail id ';  // Specify main and backup SMTP servers
             $mail->SMTPAuth = true;
             $mail->Username = 'smtp mail here'; // SMTP username
             $mail->Password = 'smtp password here '; // SMTP password (use an app password if 2-step verification is enabled)
