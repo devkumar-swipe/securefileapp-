@@ -30,8 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPAuth = true;
             $mail->Username = 'smtp mail here'; // SMTP username
             $mail->Password = 'smtp password here '; // SMTP password (use an app password if 2-step verification is enabled)
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; //encryption
+            $mail->Port = 273;//enter port number
 
             //Recipients
             $mail->setFrom('mail address here', 'SecFile OTP Verification');
