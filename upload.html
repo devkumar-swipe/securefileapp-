@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecFile - Upload</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7f3fe; /* .bg-info-subtle equivalent */
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            background-color: #b3d9ff; /* Light blue color */
+            color: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .title p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        header {
+            background-color: #d6ebff; /* Lighter blue color */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: green;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .upload-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .upload-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .upload-form input[type="file"] {
+            margin-top: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .upload-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .upload-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>SecFile</h1>
+        <p>Protect, Manage, and Access with Confidence</p>
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="upload.html" class="active">Upload</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="upload-form">
+            <h2>Upload Files</h2>
+            <form id="file-upload-form" action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="file">Choose file:</label>
+                <input type="file" id="file" name="file" accept="image/*, audio/*, video/*, application/pdf">
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

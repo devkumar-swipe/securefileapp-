@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecFile - Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e7f3fe; /* .bg-info-subtle equivalent */
+            margin: 0;
+            padding: 0;
+        }
+
+        .title {
+            background-color: #b3d9ff; /* Light blue color */
+            color: #000;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .title h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .title p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        header {
+            background-color: #d6ebff; /* Lighter blue color */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: green;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .profile-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .profile-picture-container {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+
+        .profile-picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-picture-input {
+            display: none;
+        }
+
+        .profile-picture-edit {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-form input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .profile-form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .profile-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>SecFile</h1>
+        <p>Protect, Manage, and Access with Confidence</p>
+    </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="upload.html">Upload</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="profile-section">
+            <h2>Profile</h2>
+            <div class="profile-picture-container">
+                <img src="default-profile.jpg" alt="Profile Picture" class="profile-picture" id="profile-picture">
+                <input type="file" accept="image/*" id="profile-picture-input" class="profile-picture-input">
+                <label for="profile-picture-input" class="profile-picture-edit">&#9998;</label>
+            </div>
+            <form class="profile-form" id="profile-form">
+                <input type="text" id="username" placeholder="Username" disabled>
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="number" id="age" placeholder="Age (13-99)" min="13" max="99" required>
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.11/cropper.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get name and email from localStorage
+            const name = localStorage.getItem('name');
+            const email = localStorage.getItem('email');
+            
+            // If name and email exist, populate the corresponding fields
+            if (name) {
+                document.getElementById('username').value = name;
+            }
+            if (email) {
+                document.getElementById('email').value = email;
+            }
+        
+            // Initialize Cropper.js for profile picture editing
+            const profilePicture = document.getElementById('profile-picture');
+            const profilePictureInput = document.getElementById('profile-picture-input');
+        
+            let cropper;
+        
+            profilePictureInput.addEventListener('change', function() {
+                const file = this.files[0];
+        
+                if (file) {
+                    const reader = new FileReader();
+        
+                    reader.onload = function(e) {
+                        const image = new Image();
+                        image.src = e.target.result;
+        
+                        image.onload = function() {
+                            if (cropper) {
+                                cropper.replace(e.target.result);
+                            } else {
+                                profilePicture.src = e.target.result;
+                                cropper = new Cropper(profilePicture, {
+                                    aspectRatio: 1,
+                                    viewMode: 1,
+                                    background: false,
+                                    autoCropArea: 1,
+                                    responsive: true,
+                                    crop: function(event) {
+                                        // Output the cropped area data into hidden fields if needed
+                                    }
+                                });
+                            }
+                        };
+                    };
+        
+                    reader.readAsDataURL(file);
+                }
+            });
+        
+            // Event listener for profile form submission
+            document.getElementById('profile-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const age = document.getElementById('age').value;
+                updateProfile(age);
+            });
+        
+            // Function to update user profile (placeholder)
+            function updateProfile(age) {
+                // Validate age input (already validated by HTML min and max attributes)
+                // Implement your logic to update user profile
+                console.log('Updating profile:', { name, email, age });
+            }
+        });
+        </script>
+        
