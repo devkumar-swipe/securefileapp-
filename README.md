@@ -79,7 +79,8 @@ This project was assigned by our university in collaboration with IBM, with a fo
 For any questions, suggestions, or feedback, please feel free to reach out.
 
 - **Email**: [devkumar@cyberswipe.in)
-- **LinkedIn**: [linkedin.com/in/yourprofile](#)
+- **LinkedIn**: [https://www.linkedin.com/in/dev-kumar-b1488129b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app](#)
+- 
 - **Website**: [cyberswipe.in](https://cyberswipe.in)
 
 ## 🎉 Acknowledgments
