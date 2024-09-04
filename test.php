@@ -15,14 +15,14 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;
-    $mail->Username = 'secfile101@gmail.com'; // SMTP username (your Gmail address)
-    $mail->Password = 'zzih ydjd wsly hwzs'; // SMTP password (your Gmail password or App Password)
+    $mail->Username = 'your username '; // SMTP username (your Gmail address)
+    $mail->Password = 'your smtp password'; // SMTP password (your Gmail password or App Password)
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
     //Recipients
-    $mail->setFrom('secfile101@gmail.com', 'hello sir');
-    $mail->addAddress("devkumar@cyberswipe.in");     // Add a recipient
+    $mail->setFrom('your mail', 'hello sir');
+    $mail->addAddress("add recept mail here");     // Add a recipient
 
     // Content
     $mail->isHTML(true);
