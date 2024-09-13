@@ -83,6 +83,11 @@ For any questions, suggestions, or feedback, please feel free to reach out.
 - 
 - **Website**: [cyberswipe.in](https://cyberswipe.in)
 
+  ## Download
+  **Clone the repository**:
+   ```bash
+   git clone https://github.com/devkumar-swipe/tic_tac_toe_gui.git
+
 ## 🎉 Acknowledgments
 
 Special thanks to my university and IBM for the opportunity to work on this project and to all the mentors and collaborators who provided guidance and support.
