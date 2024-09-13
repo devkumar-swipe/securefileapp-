@@ -23,6 +23,11 @@ Welcome to the Secure File System Application, a project developed as part of a 
 
 - **Logout Functionality**: After managing their files, users can securely log out to prevent unauthorized access.
 
+   ## Download
+  **Clone the repository**:
+   ```bash
+   https://github.com/devkumar-swipe/securefileapp-.git
+
 ## 🛠️ Technologies Used
 
 - **Frontend**:
@@ -86,7 +91,7 @@ For any questions, suggestions, or feedback, please feel free to reach out.
   ## Download
   **Clone the repository**:
    ```bash
-   git clone https://github.com/devkumar-swipe/tic_tac_toe_gui.git
+   https://github.com/devkumar-swipe/securefileapp-.git
 
 ## 🎉 Acknowledgments
 
